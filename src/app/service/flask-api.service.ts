@@ -10,13 +10,13 @@ export class FlaskApiService {
 
   sendQuery(query: any):Observable<any>{
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
-    return this.http.post(`http://127.0.0.1:5000/`,query,{ headers, responseType:'text'})
+    return this.http.post(`https://jarvis-web.herokuapp.com/`,query,{ headers, responseType:'text'})
   }
   getResponse() : Observable<any>{
     // return this.http.get(`http://localhost:3000/`)
     // console.log("hey I am here", this.http.get(`http://127.0.0.1:5000/`))
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
-    return this.http.get(`http://127.0.0.1:5000/`,{ headers, responseType:'text'})
+    return this.http.get(`https://jarvis-web.herokuapp.com/`,{ headers, responseType:'text'})
   }
 
 }
