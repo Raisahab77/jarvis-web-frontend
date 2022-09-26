@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 20px;
+}
+body{
+    background: linear-gradient(70deg, blue, pink);
+
+}
+@media screen and (max-width: 850px){
+    *{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 500px){
+    *{
+        font-size: 10px;
+    }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FlaskApiService } from './service/flask-api.service';
 
 @Component({
@@ -28,7 +28,10 @@ export class AppComponent implements OnInit{
   }
 
   postQuery(){
-    console.log("value of query is ",this.query);
+    let query = this.query;
+    console.log("value of query is ",query);   
+    // document.getElementById('sent-msg')!.innerHTML = query;
+    document.getElementById('sent-msg')!.innerHTML = query;
     this.service.sendQuery(this.query).subscribe((response: any)=>{
       let jarvis = response;
       document.getElementById('message')!.innerHTML = jarvis;
@@ -37,6 +40,7 @@ export class AppComponent implements OnInit{
       console.log('Error is',error)
     }
     )
+    this.inputForm.reset();
   }
 
   getApiData(){
@@ -44,6 +48,7 @@ export class AppComponent implements OnInit{
       console.log("reached here")
       let jarvis = response;
       document.getElementById('message')!.innerHTML = jarvis;
+
       console.log(response);
     },(error: any)=>{
       console.log('Error is',error)

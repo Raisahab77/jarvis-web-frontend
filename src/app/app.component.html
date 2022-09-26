@@ -1,10 +1,13 @@
-<h1>Chat Bot</h1>
+<h1>Ritu My Personal Assistant</h1>
 <div class="container">
   <form [formGroup]="inputForm">
     <input type="text" placeholder="Say Something" id="query" formControlName="query">
-    <button (click)="postQuery()">Send</button>
-    <p id="message"></p>
+    <button (click)="postQuery()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
   </form>
+  <div id="message-box">
+    <!-- <p id="sent-msg"></p>
+    <p id="message"></p> -->
+  </div>
 </div>
 
 
