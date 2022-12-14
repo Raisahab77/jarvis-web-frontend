@@ -2,6 +2,8 @@
 *{
     font-family: 'Baloo Bhai 2', cursive;
     font-size: 20px;
+    margin: 0;
+    padding: 0;
 }
 body{
     background: linear-gradient(70deg, blue, pink);
@@ -9,11 +11,11 @@ body{
 }
 @media screen and (max-width: 850px){
     *{
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 500px){
     *{
-        font-size: 10px;
+        font-size: 14px;
     }
 }

@@ -1,12 +1,19 @@
-<h1>Ritu My Personal Assistant</h1>
-<div class="container">
-  <form [formGroup]="inputForm">
-    <input type="text" placeholder="Say Something" id="query" formControlName="query">
-    <button (click)="postQuery()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-  </form>
-  <div id="message-box">
-    <!-- <p id="sent-msg"></p>
-    <p id="message"></p> -->
+<h1>Ritu</h1>
+<div class="main">
+  <div class="container">
+    <div class="message-box">
+       <div class="chat"  *ngFor="let chat of chats" >
+        <p id="sent-msg" *ngIf="chat.sendby==='me'">{{chat.message}}</p>
+        <p id="message" *ngIf="chat.sendby==='bot'">{{chat.message}}</p>
+      </div>
+    </div>
+
+    <div class="messageBoxFooter">
+      <form [formGroup]="inputForm">
+        <input type="text" placeholder="Say Something" id="query" formControlName="query">
+        <button (click)="postQuery()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+      </form>
+    </div>
   </div>
 </div>
 

@@ -14,6 +14,7 @@ export class AppComponent implements OnInit{
   constructor(private service:FlaskApiService){
 
   }
+  chats:any;
   ngOnInit(){
     this.getApiData()
   }
@@ -33,9 +34,10 @@ export class AppComponent implements OnInit{
     // document.getElementById('sent-msg')!.innerHTML = query;
     document.getElementById('sent-msg')!.innerHTML = query;
     this.service.sendQuery(this.query).subscribe((response: any)=>{
-      let jarvis = response;
-      document.getElementById('message')!.innerHTML = jarvis;
-      console.log(response);
+      // let jarvis = response;
+      // document.getElementById('message')!.innerHTML = jarvis;
+      // console.log(this.chat);
+      this.getApiData()
     },(error: any)=>{
       console.log('Error is',error)
     }
@@ -46,10 +48,15 @@ export class AppComponent implements OnInit{
   getApiData(){
     this.service.getResponse().subscribe((response: any)=>{
       console.log("reached here")
-      let jarvis = response;
-      document.getElementById('message')!.innerHTML = jarvis;
+      let parse = JSON.parse(response);
+      this.chats = JSON.parse(parse);
 
-      console.log(response);
+      // console.log(`parsed data ${this.chat}`)
+      for (let i=0;i<this.chats.length;i++){
+        console.log(this.chats[i]);
+      }
+      console.log(this.chats)
+      console.log(typeof(this.chats))
     },(error: any)=>{
       console.log('Error is',error)
     }
